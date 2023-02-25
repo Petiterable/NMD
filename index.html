@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nick & Maple</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			background-color: #FCEDEA;
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+
+		h1 {
+			font-size: 36px;
+			color: #DD6868;
+			margin-top: 50px;
+			margin-bottom: 20px;
+		}
+
+		img {
+			max-width: 90%;
+			border-radius: 50%;
+			box-shadow: 5px 5px 10px #888888;
+			margin-bottom: 30px;
+		}
+
+		.days-text {
+			font-size: 24px;
+			color: #DD6868;
+			margin-bottom: 10px;
+		}
+
+		.heart {
+			color: #DD6868;
+			font-size: 40px;
+			cursor: pointer;
+		}
+
+		.heart:hover {
+			transform: scale(1.2);
+			transition: all 0.3s ease-in-out;
+		}
+
+		.hidden {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<h1>Nick & Maple</h1>
+	<img src="https://s3.bmp.ovh/imgs/2023/02/26/9ee80e99bee39277.jpg" alt="Nick and Maple">
+	<p class="original-text">We have been together for...</p>
+	<p><i class="heart" id="heart1" onclick="showDays()">❤</i></p>
+	<div id="new-content" class="hidden">
+		<p class="days-text" id="days"></p>
+		<p id="message"></p>
+	</div>
+	<script>
+		function showDays() {
+			var startDate = new Date('2022-12-21');
+			var now = new Date();
+			var timeDiff = Math.abs(now.getTime() - startDate.getTime());
+			var daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+			document.getElementById("heart1").classList.add("hidden");
+			document.getElementById("new-content").classList.remove("hidden");
+			document.getElementById("days").innerHTML = daysDiff + " days!";
+			document.getElementById("message").innerHTML = "Looking forward to more days ahead. Each day will only bring us closer and create more memories ❤";
+		}
+	</script>
+</body>
+</html>
